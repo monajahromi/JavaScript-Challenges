@@ -1,0 +1,46 @@
+function stringExpansion(txt) {
+  //Extract Words
+	let words = txt.split(/\d+/).filter(v => v != ""); 
+  //Extract Repeats 
+	let repeats = txt.split(/[a-zA-Z]+/).map(a=>a.charAt(a.length-1)).map(a=>a == "" ? 1: a);
+	
+  return words.map((v,i)=> [...v].map(a => a.repeat(repeats[i])).join('')).join('')
+}
+
+Test.assertEquals(stringExpansion("3M2u5b2a1s1h2i1r"),"MMMuubbbbbaashiir")
+Test.assertEquals(stringExpansion("3Mat"),"MMMaaattt")
+Test.assertEquals(stringExpansion("3M123u42b12a"),"MMMuuubbaa")
+Test.assertEquals(stringExpansion("3n6s7f3n"),"nnnssssssfffffffnnn")
+Test.assertEquals(stringExpansion("0d4n8d2b"),"nnnnddddddddbb")
+Test.assertEquals(stringExpansion("0c3b1n7m"),"bbbnmmmmmmm")
+Test.assertEquals(stringExpansion("7m3j4ik2a"),"mmmmmmmjjjiiiikkkkaa")
+Test.assertEquals(stringExpansion("3A5m3B3Y"),"AAAmmmmmBBBYYY")
+Test.assertEquals(stringExpansion("5M0L8P1"),"MMMMMPPPPPPPP")
+Test.assertEquals(stringExpansion("2B"),"BB")
+Test.assertEquals(stringExpansion("7M1n3K"),"MMMMMMMnKKK")
+Test.assertEquals(stringExpansion("A4g1b4d"),"Aggggbdddd")
+Test.assertEquals(stringExpansion("111111"),"")
+Test.assertEquals(stringExpansion("4d324n2"),"ddddnnnn")
+Test.assertEquals(stringExpansion("5919nf3u"),"nnnnnnnnnfffffffffuuu")
+Test.assertEquals(stringExpansion("2n1k523n4i"),"nnknnniiii")
+Test.assertEquals(stringExpansion("6o23M32d"),"ooooooMMMdd")
+Test.assertEquals(stringExpansion("1B44n3r"),"Bnnnnrrr")
+Test.assertEquals(stringExpansion("M21d1r32"),"Mdr")
+Test.assertEquals(stringExpansion("23M31r2r2"),"MMMrrr")
+Test.assertEquals(stringExpansion("8494mM25K2A"),"mmmmMMMMKKKKKAA")
+Test.assertEquals(stringExpansion("4A46D6B3C"),"AAAADDDDDDBBBBBBCCC")
+Test.assertEquals(stringExpansion("23D42B3A"),"DDDBBAAA")
+Test.assertEquals(stringExpansion("143D36C1A"),"DDDCCCCCCA")
+Test.assertEquals(stringExpansion("asdf"),"asdf")
+Test.assertEquals(stringExpansion("23jbjl1eb"),"jjjbbbjjjllleb")
+Test.assertEquals(stringExpansion("43ibadsr3"),"iiibbbaaadddsssrrr")
+Test.assertEquals(stringExpansion("123p9cdbjs"),"pppcccccccccdddddddddbbbbbbbbbjjjjjjjjjsssssssss")
+Test.assertEquals(stringExpansion("2309ew7eh"),"eeeeeeeeewwwwwwwwweeeeeeehhhhhhh")
+Test.assertEquals(stringExpansion("312987rfebd"),"rrrrrrrfffffffeeeeeeebbbbbbbddddddd")
+Test.assertEquals(stringExpansion("126cgec"),"ccccccggggggeeeeeecccccc")
+Test.assertEquals(stringExpansion("1chwq3rfb"),"chwqrrrfffbbb")
+Test.assertEquals(stringExpansion("389fg21c"),"fffffffffgggggggggc")
+Test.assertEquals(stringExpansion("239vbsac"),"vvvvvvvvvbbbbbbbbbsssssssssaaaaaaaaaccccccccc")
+Test.assertEquals(stringExpansion("davhb327vuc"),"davhbvvvvvvvuuuuuuuccccccc")
+Test.assertEquals(stringExpansion("cvyb239bved2dv"),"cvybbbbbbbbbbvvvvvvvvveeeeeeeeedddddddddddvv")
+Test.assertEquals(stringExpansion(""),"")
